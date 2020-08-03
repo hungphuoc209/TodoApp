@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">DatabaseTest</string>
+    <string name="et_id">ID</string>
+    <string name="et_name">Name</string>
+    <string name="btn_add">ADD</string>
+    <string name="btn_del">DELETE</string>
+    <string name="cb_Male">Male</string>
+</resources>
