@@ -6,24 +6,29 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.databasetest.Adapters.CustomerInfoAdapter;
 import com.example.databasetest.Model.CustomerInfoModel;
 import com.example.databasetest.Model.CustomerUtils;
 import com.example.databasetest.databinding.ActivityMainBinding;
 import com.example.databasetest.databinding.CustomerInfoBinding;
+import com.example.databasetest.interf.OnCustomItemClickListener;
 
 import java.util.ArrayList;
+import java.util.Objects;
+import java.util.TooManyListenersException;
 
-public class MainActivity extends AppCompatActivity  {
+public class MainActivity extends AppCompatActivity implements OnCustomItemClickListener {
 
     public ActivityMainBinding binding;
     ArrayList<CustomerInfoModel> arrayList;
+    OnCustomItemClickListener listener;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        getSupportActionBar().hide();
+        Objects.requireNonNull(getSupportActionBar()).hide();
 
     //  setContentView(R.layout.activity_main);
 
@@ -40,8 +45,10 @@ public class MainActivity extends AppCompatActivity  {
         binding.rvCustomerInfo.setLayoutManager(layoutManager);
     }
     public void main(){
-        CustomerUtils customerUtils;
+        final CustomerUtils customerUtils;
+        final OnCustomItemClickListener listener = null;
         arrayList = CustomerUtils.getInstance().getAll();
+        final ArrayList<CustomerInfoModel> arrayList;
 
 
         binding.btnAdd.setOnClickListener(new View.OnClickListener() {
@@ -51,16 +58,29 @@ public class MainActivity extends AppCompatActivity  {
                 binding.etName.setText("");
                 binding.etId.setText("");
                 binding.cbMale.setChecked(false);
-                CustomerInfoAdapter customerInfoAdapter = new CustomerInfoAdapter(arrayList, getApplicationContext());
+                CustomerInfoAdapter customerInfoAdapter = new CustomerInfoAdapter(arrayList, getApplicationContext(),listener);
                 binding.rvCustomerInfo.setAdapter(customerInfoAdapter);
 
 
+
+            }
+        });
+        binding.btnDel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int id = CustomerInfoAdapter.ViewHolder.
+                CustomerUtils.getInstance().deteleCustomer(id);
             }
         });
 
 
 
-
     }
 
+    @Override
+    public int getID(CustomerInfoModel customerInfoModel) {
+        ArrayList<CustomerInfoModel> arrayList;
+        arrayList = CustomerUtils.getInstance().getAll();
+        return arrayList.get(0).getID();
+    }
 }

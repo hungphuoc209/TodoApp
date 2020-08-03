@@ -1,5 +1,7 @@
 package com.example.databasetest.Model;
 
+import com.example.databasetest.Adapters.CustomerInfoAdapter;
+
 import java.util.ArrayList;
 
 public class CustomerUtils {
@@ -46,9 +48,9 @@ public class CustomerUtils {
         return null;
 
     }
-    public void deteleCustomer(int id){
-        for (int i = 0 ; i <arrayList.size();i++){
-            if(arrayList.get(i).getID() == id){
+    public void deteleCustomer(int id) {
+        for (int i = 0; i < arrayList.size(); i++) {
+            if (arrayList.get(i).getID() == id) {
                 arrayList.remove(i);
                 return;
             }
