@@ -1,4 +1,5 @@
 package com.example.databasetest.interf;
 
-interface OnCheckHelper {
+public interface OnCheckHelper {
+    void OnSetChangedListener(boolean isChecked, int position);
 }

@@ -1,22 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:width="40dp"
-        android:height="40dp"
+        android:width="500dp"
+        android:height="1010dp"
         android:gravity="bottom">
         <shape>
             <solid
-                android:color="#FFF"/>
+                android:color="#FF5A5A"/>
         </shape>
     </item>
-    <item
-        android:width="40dp"
-        android:height="30dp"
-        android:gravity="center">
-        <shape>
-            <solid
-                android:color="#000"/>
-        </shape>
-    </item>
+
 
 </layer-list>

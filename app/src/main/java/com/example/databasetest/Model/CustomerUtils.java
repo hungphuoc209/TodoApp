@@ -1,5 +1,8 @@
 package com.example.databasetest.Model;
 
+import android.widget.Toast;
+
+import com.example.databasetest.Activities.MainActivity;
 import com.example.databasetest.Adapters.CustomerInfoAdapter;
 
 import java.util.ArrayList;
@@ -27,18 +30,10 @@ public class CustomerUtils {
             customerInfoModel.setID(0);
         }
         else {
-            int lastId = arrayList.get(arrayList.size()-1).getID();
+            int lastId = (int) arrayList.get(arrayList.size()-1).getID();
             customerInfoModel.setID(lastId+1);
         }
         arrayList.add(customerInfoModel);
-    }
-    public void updateCustomer(int id , CustomerInfoModel newCustomerInfoModel){
-        CustomerInfoModel oldCustomer = getCustomerbyID(id);
-        if(oldCustomer != null){
-            oldCustomer.setmName(newCustomerInfoModel.getmName());
-            oldCustomer.setmID(newCustomerInfoModel.getmID());
-            oldCustomer.setmGender(newCustomerInfoModel.ismGender());
-        }
 
     }
     private CustomerInfoModel getCustomerbyID(int id){
@@ -48,7 +43,7 @@ public class CustomerUtils {
         return null;
 
     }
-    public void deteleCustomer(int id) {
+    public void deleteCustomer(int id) {
         for (int i = 0; i < arrayList.size(); i++) {
             if (arrayList.get(i).getID() == id) {
                 arrayList.remove(i);

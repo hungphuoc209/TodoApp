@@ -1,53 +1,59 @@
 package com.example.databasetest.Model;
 
-public class CustomerInfoModel {
+import com.example.databasetest.Adapters.RealmContext.RealmContext;
 
+import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
 
-    public String getmName() {
-        return mName;
+public class CustomerInfoModel extends RealmObject {
+
+    @PrimaryKey
+    private long ID;
+
+    private String task;
+    private String description;
+    private boolean selected;
+
+    public CustomerInfoModel() {
     }
 
-    public void setmName(String mName) {
-        this.mName = mName;
-    }
-
-    public String getmID() {
-        return mID;
-    }
-
-    public void setmID(String mID) {
-        this.mID = mID;
-    }
-
-    public boolean ismGender() {
-        return mGender;
-    }
-
-    public void setmGender(boolean mGender) {
-        this.mGender = mGender;
-    }
-
-    public int getID() {
-        return ID;
-    }
-
-    public void setID(int ID) {
+    public CustomerInfoModel(String task, String description, boolean selected,long ID) {
+        this.task = task;
+        this.description = description;
+        this.selected = selected;
         this.ID = ID;
     }
 
-    private int ID;
-
-    public CustomerInfoModel(String mName, String mID, boolean mGender) {
-        this.mName = mName;
-        this.mID = mID;
-        this.mGender = mGender;
+    public long getID() {
+        return ID;
     }
 
-    private String mName;
-    private String mID;
-    private boolean mGender;
-
-
-
+    public void setID(long ID) {
+        this.ID = ID;
     }
+
+    public String getTask() {
+        return task;
+    }
+
+    public void setTask(String task) {
+        this.task = task;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public boolean isSelected() {
+        return selected;
+    }
+
+    public void setSelected(boolean selected) {
+        this.selected = selected;
+    }
+}
 

@@ -1,8 +1,9 @@
 <resources>
-    <string name="app_name">DatabaseTest</string>
-    <string name="et_id">ID</string>
-    <string name="et_name">Name</string>
+    <string name="app_name">Todolist</string>
+    <string name="et_id">Description</string>
+    <string name="et_name">Add your task</string>
     <string name="btn_add">ADD</string>
     <string name="btn_del">DELETE</string>
     <string name="cb_Male">Male</string>
+    <string name="female">Female</string>
 </resources>
