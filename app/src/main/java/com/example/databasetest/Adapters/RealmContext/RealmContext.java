@@ -12,7 +12,6 @@ public class RealmContext {
         this.realm = Realm.getDefaultInstance();
         this.realm = realm;
     }
-
     public static RealmContext getInstance(Realm realm) {
         if (instance == null) instance = new RealmContext(realm);
         return instance;
